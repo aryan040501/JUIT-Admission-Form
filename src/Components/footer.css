@@ -1,0 +1,7 @@
+.footer {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  background-color: #74c5f3;
+}

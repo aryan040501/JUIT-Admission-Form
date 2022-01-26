@@ -1,0 +1,75 @@
+.form {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.halfnhalf {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.form-half1 {
+  margin-right: 1rem;
+}
+
+.form-half2 {
+  margin-left: 1rem;
+}
+
+.exam {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.exam-marks {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.exam-marks-body {
+  border: black 2px solid;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  margin-right: 5rem;
+}
+
+.area {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.statefromboard {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.branch {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.branch-form {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.tabledata {
+  border: 2px solid black;
+}
+
+.declaration {
+  display: grid;
+  grid-template-columns: 2% 98%;
+}
+
+.submit {
+  padding: 10px;
+  background-color: #271468;
+  border-radius: 10px;
+  color: white;
+}

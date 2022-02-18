@@ -6,9 +6,9 @@ import Footer from "../Components/footer";
 function Form() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <FormBody />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

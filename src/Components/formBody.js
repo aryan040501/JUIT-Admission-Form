@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
 import "./formBody.css";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
+import axios from "../axios";
 
 function FormBody() {
   const candidateNameRef = useRef("");
@@ -121,626 +124,696 @@ function FormBody() {
         choiceSeven: choiceSevenRef.current.value,
       },
     };
+    axios.post("/", { postData });
     console.log(postData);
+    const input = document.getElementById("divToPrint");
+    console.log("hehehe", input);
+    html2canvas(input).then((canvas) => {
+      console.log("hehehe");
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "pt", "a4", false);
+      pdf.addImage(imgData, "PNG", 50, 50, 500, 0, undefined, false);
+      // pdf.output('dataurlnewwindow');
+      pdf.save("download.pdf");
+    });
   };
 
   return (
-    <div className="form">
-      <br></br>
-      <div className="capital">
-        <center>
-          <strong>Please Fill the Form</strong>
-        </center>
+    <div id="divToPrint">
+      <div className="fullheader">
+        <div className="logo">
+          <img src="https://www.juit.ac.in/front/images/logo.jpg" alt="logo" />
+        </div>
+        <div className="header-data">
+          <center>
+            <div className="univ">
+              JAYPEE UNIVERSITY OF INFORMATION TECHNOLOGY
+            </div>
+            <div>
+              (Approved by UGC u/s 2(f) of UGC Act, 1956) P.O Waknaghat, Teh:
+              Kandaghat, Distt. Solan 173 234 (H.P.)
+            </div>
+            <div className="greyed">
+              <div>BTech Admission 2022</div>
+              <div>(10+2 Merit Based)</div>
+            </div>
+            <div>
+              Bioinformatics (BI) ,Biotechnology (BT) ,Civil Engineering (CE),
+              Computer Science &amp; Engineering (CSE),
+              <br /> Electronics and Computer Engineering (ECM), Electronics
+              &amp; Communication Engineering (ECE) and Information Technology
+              (IT)
+            </div>
+          </center>
+        </div>
+        <div className="addpic">{/* <input type="file" /> */}</div>
       </div>
-      <br></br>
-      <form>
-        <div className="halfnhalf">
-          <div className="form-half1">
-            <label className="form-label">Candidate's Name</label>
-            <input
-              type="text"
-              ref={candidateNameRef}
-              className="form-control"
-              name="candidateName"
-            />
-            <label className="form-label">Father's Name</label>
-            <input
-              type="text"
-              className="form-control"
-              name="fathersName"
-              ref={fathersNameRef}
-            />
-            <label className="form-label">Mother's Name</label>
-            <input
-              type="text"
-              className="form-control"
-              name="mothersName"
-              ref={mothersNameRef}
-            />
-            <label className="form-label">Date of Birth</label>
-            <input
-              type="date"
-              className="form-control"
-              name="dateOfBirth"
-              ref={dateofBirthRef}
-            />
-          </div>
-          <div className="form-half2">
-            <label className="form-label">Nationality</label>
-            <input
-              type="text"
-              className="form-control"
-              name="nationality"
-              ref={nationalityRef}
-            />
-            <label className="form-label">Gender</label>
-            <select className="form-select" name="gender" ref={genderRef}>
-              <option value={"Male"}>Male</option>
-              <option value={"Female"}>Female</option>
-              <option value={"Other(s)"}>Other(s)</option>
-            </select>
-            <label className="form-label">Category</label>
-            <select className="form-select" name="category" ref={categoryRef}>
-              <option value={"General"}>General</option>
-              <option value={"OBC"}>OBC</option>
-              <option value={"SC"}>SC</option>
-              <option value={"ST"}>ST</option>
-              <option value={"EWS"}>EWS</option>
-            </select>
-            <label className="form-label">
-              Person with Disability &nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
-            <br></br>
-            <input
-              className="form-check-input"
-              type="checkbox"
-              value="false"
-              id="flexCheckDefault"
-              name="personWithDisability"
-              ref={personWithDisabilityRef}
-            />
-            <label class="form-check-label" for="flexCheckDefault">
-              Yes
-            </label>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-          </div>
+      <div className="form">
+        <br></br>
+        <div className="capital">
+          <center>
+            <strong>Please Fill the Form</strong>
+          </center>
         </div>
         <br></br>
-        <label className="form-label">
-          Details of Qualifying exam (10+2 or equivalent) :
-        </label>
-        <div className="exam">
-          <div>
-            <label className="form-label">Name of Board</label>
-            <input
-              type="text"
-              className="form-control"
-              name="nameOfBoard"
-              ref={nameOfBoardRef}
-            />
-          </div>
-          <div>
-            <label className="form-label">Maximum Marks</label>
-            <input
-              type="text"
-              className="form-control"
-              name="maximumMarks"
-              ref={maximumMarksTRef}
-            />
-          </div>
-          <div>
-            <label className="form-label">Marks Obtained</label>
-            <input
-              type="text"
-              className="form-control"
-              name="marksObtained"
-              ref={marksObtainedTRef}
-            />
-          </div>
-          <div>
-            <label className="form-label">10+2 Roll No</label>
-            <input
-              type="text"
-              className="form-control"
-              name="rollNumber"
-              ref={rollNumberRef}
-            />
-          </div>
-          <div>
-            <label className="form-label">Year of Passing</label>
-            <input
-              type="text"
-              className="form-control"
-              name="yearOfPassing"
-              ref={yearOfPassingRef}
-            />
-          </div>
-        </div>
-        <br></br>
-        <label className="form-label">Score in 10+2 Exam</label>
-        <div className="exam-marks">
-          <div className="exam-marks-body">
-            <div>
-              <center>
-                <strong>Subject</strong>
-              </center>
+        <form>
+          <div className="halfnhalf">
+            <div className="form-half1">
+              <label className="form-label">Candidate's Name</label>
+              <input
+                type="text"
+                ref={candidateNameRef}
+                className="form-control"
+                name="candidateName"
+                required="required"
+              />
+              <label className="form-label">Father's Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="fathersName"
+                ref={fathersNameRef}
+              />
+              <label className="form-label">Mother's Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="mothersName"
+                ref={mothersNameRef}
+              />
+              <label className="form-label">Date of Birth</label>
+              <input
+                type="date"
+                className="form-control"
+                name="dateOfBirth"
+                ref={dateofBirthRef}
+              />
             </div>
-            <div></div>
-            <div>
-              <strong>Marks</strong>
+            <div className="form-half2">
+              <label className="form-label">Nationality</label>
+              <input
+                type="text"
+                className="form-control"
+                name="nationality"
+                ref={nationalityRef}
+              />
+              <label className="form-label">Gender</label>
+              <select className="form-select" name="gender" ref={genderRef}>
+                <option value={"Male"}>Male</option>
+                <option value={"Female"}>Female</option>
+                <option value={"Other(s)"}>Other(s)</option>
+              </select>
+              <label className="form-label">Category</label>
+              <select className="form-select" name="category" ref={categoryRef}>
+                <option value={"General"}>General</option>
+                <option value={"OBC"}>OBC</option>
+                <option value={"SC"}>SC</option>
+                <option value={"ST"}>ST</option>
+                <option value={"EWS"}>EWS</option>
+              </select>
+              <label className="form-label">
+                Person with Disability &nbsp;&nbsp;&nbsp;&nbsp;
+              </label>
+              <br></br>
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value="false"
+                id="flexCheckDefault"
+                name="personWithDisability"
+                ref={personWithDisabilityRef}
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Yes
+              </label>
+              &nbsp;&nbsp;&nbsp;&nbsp;
             </div>
-            <div></div>
-            <div>Max Marks</div>
-            <div>Obtained</div>
+          </div>
+          <br></br>
+          <label className="form-label">
+            Details of Qualifying exam (10+2 or equivalent) :
+          </label>
+          <div className="exam">
+            <div>
+              <label className="form-label">Name of Board</label>
+              <input
+                type="text"
+                className="form-control"
+                name="nameOfBoard"
+                ref={nameOfBoardRef}
+              />
+            </div>
+            <div>
+              <label className="form-label">Maximum Marks</label>
+              <input
+                type="text"
+                className="form-control"
+                name="maximumMarks"
+                ref={maximumMarksTRef}
+              />
+            </div>
+            <div>
+              <label className="form-label">Marks Obtained</label>
+              <input
+                type="text"
+                className="form-control"
+                name="marksObtained"
+                ref={marksObtainedTRef}
+              />
+            </div>
+            <div>
+              <label className="form-label">10+2 Roll No</label>
+              <input
+                type="text"
+                className="form-control"
+                name="rollNumber"
+                ref={rollNumberRef}
+              />
+            </div>
+            <div>
+              <label className="form-label">Year of Passing</label>
+              <input
+                type="text"
+                className="form-control"
+                name="yearOfPassing"
+                ref={yearOfPassingRef}
+              />
+            </div>
+          </div>
+          <br></br>
+          <label className="form-label">Score in 10+2 Exam</label>
+          <div className="exam-marks">
+            <div className="exam-marks-body">
+              <div>
+                <center>
+                  <strong>Subject</strong>
+                </center>
+              </div>
+              <div></div>
+              <div>
+                <strong>Marks</strong>
+              </div>
+              <div></div>
+              <div>Max Marks</div>
+              <div>Obtained</div>
 
-            <label className="form-label">Mathematics</label>
-            <input
-              type="text"
-              className="form-control"
-              name="maximumMarks"
-              ref={maximumMarksRef1}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="marksObtained"
-              ref={marksObtainedRef1}
-            />
-            <label className="form-label">Physics</label>
-            <input
-              type="text"
-              className="form-control"
-              name="maximumMarks"
-              ref={maximumMarksRef2}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="marksObtained"
-              ref={marksObtainedRef2}
-            />
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Subject3"
-              name="subjectName"
-              ref={subjectNameRef3}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="maximumMarks"
-              ref={maximumMarksRef3}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="marksObtained"
-              ref={marksObtainedRef3}
-            />
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Subject4"
-              name="subjectName"
-              ref={subjectNameRef4}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="maximumMarks"
-              ref={maximumMarksRef4}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="marksObtained"
-              ref={marksObtainedRef4}
-            />
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Subject5"
-              name="subjectName"
-              ref={subjectNameRef5}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="maximumMarks"
-              ref={maximumMarksRef5}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="marksObtained"
-              ref={marksObtainedRef5}
-            />
-            <label className="form-label">
-              <strong>
-                <center>Total</center>
-              </strong>
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              name="totalMaximumMarks"
-              ref={totalMaximumMarksRef}
-            />
-            <input
-              type="text"
-              className="form-control"
-              name="totalMarksObtained"
-              ref={totalMarksObtainedRef}
-            />
+              <label className="form-label">Mathematics</label>
+              <input
+                type="text"
+                className="form-control"
+                name="maximumMarks"
+                ref={maximumMarksRef1}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="marksObtained"
+                ref={marksObtainedRef1}
+              />
+              <label className="form-label">Physics</label>
+              <input
+                type="text"
+                className="form-control"
+                name="maximumMarks"
+                ref={maximumMarksRef2}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="marksObtained"
+                ref={marksObtainedRef2}
+              />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Subject3"
+                name="subjectName"
+                ref={subjectNameRef3}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="maximumMarks"
+                ref={maximumMarksRef3}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="marksObtained"
+                ref={marksObtainedRef3}
+              />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Subject4"
+                name="subjectName"
+                ref={subjectNameRef4}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="maximumMarks"
+                ref={maximumMarksRef4}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="marksObtained"
+                ref={marksObtainedRef4}
+              />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Subject5"
+                name="subjectName"
+                ref={subjectNameRef5}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="maximumMarks"
+                ref={maximumMarksRef5}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="marksObtained"
+                ref={marksObtainedRef5}
+              />
+              <label className="form-label">
+                <strong>
+                  <center>Total</center>
+                </strong>
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                name="totalMaximumMarks"
+                ref={totalMaximumMarksRef}
+              />
+              <input
+                type="text"
+                className="form-control"
+                name="totalMarksObtained"
+                ref={totalMarksObtainedRef}
+              />
+            </div>
+            <div>
+              <br />
+              <br />
+              Note: Subjects shall be ; Compulsory (I) Mathematics (ii) Physics
+              and one from others subjects can be from:- Chemistry, Computer
+              Science, Information Technology, Biology, Informatics Practices,
+              Biotechnology, Technical Vocational Subjects, Agriculture,
+              Electronics, Entrepreneurship, Engineering Graphics, Business
+              Studies and English.
+              <br />
+              <br />
+              Merit shall be based on Mathematics, Physics and subject having
+              higher score out of above mentioned eleven subjects.
+            </div>
           </div>
-          <div>
-            <br />
-            <br />
-            Note: Subjects shall be ; Compulsory (I) Mathematics (ii) Physics
-            and one from others subjects can be from:- Chemistry, Computer
-            Science, Information Technology, Biology, Informatics Practices,
-            Biotechnology, Technical Vocational Subjects, Agriculture,
-            Electronics, Entrepreneurship, Engineering Graphics, Business
-            Studies and English.
-            <br />
-            <br />
-            Merit shall be based on Mathematics, Physics and subject having
-            higher score out of above mentioned eleven subjects.
+          <label className="form-label">Corresponding Address</label>
+          <input
+            type="text"
+            className="form-control"
+            name="lineOne"
+            ref={lineOneRefC}
+          />
+          <div className="area">
+            <div>
+              <label className="form-label">District</label>
+              <input
+                type="text"
+                className="form-control"
+                name="district"
+                ref={districtRefC}
+              />
+            </div>
+            <div>
+              <label className="form-label">State</label>
+              <input
+                type="text"
+                className="form-control"
+                name="state"
+                ref={stateRefC}
+              />
+            </div>
+            <div>
+              <label className="form-label">Pincode</label>
+              <input
+                type="text"
+                className="form-control"
+                name="pinCode"
+                ref={pinCodeRefC}
+              />
+            </div>
           </div>
-        </div>
-        <label className="form-label">Corresponding Address</label>
-        <input
-          type="text"
-          className="form-control"
-          name="lineOne"
-          ref={lineOneRefC}
-        />
-        <div className="area">
-          <div>
-            <label className="form-label">District</label>
-            <input
-              type="text"
-              className="form-control"
-              name="district"
-              ref={districtRefC}
-            />
+          <label className="form-label">Permanent Address</label>
+          <input
+            type="text"
+            className="form-control"
+            name="lineOne"
+            ref={lineOneRef}
+          />
+          <div className="area">
+            <div>
+              <label className="form-label">District</label>
+              <input
+                type="text"
+                className="form-control"
+                name="district"
+                ref={districtRef}
+              />
+            </div>
+            <div>
+              <label className="form-label">State</label>
+              <input
+                type="text"
+                className="form-control"
+                name="state"
+                ref={stateRef}
+              />
+            </div>
+            <div>
+              <label className="form-label">Pincode</label>
+              <input
+                type="text"
+                className="form-control"
+                name="pinCode"
+                ref={pinCodeRef}
+              />
+            </div>
           </div>
-          <div>
-            <label className="form-label">State</label>
-            <input
-              type="text"
-              className="form-control"
-              name="state"
-              ref={stateRefC}
-            />
+          <label className="form-label">Contact Details</label>
+          <div className="contact">
+            <div>
+              <label className="form-label">Mobile Number</label>
+              <input
+                type="text"
+                className="form-control"
+                name="mobileNumber"
+                ref={mobileNumberRef}
+              />
+            </div>
+            <div>
+              <label className="form-label">Telephone Number</label>
+              <input
+                type="text"
+                className="form-control"
+                name="landlineNumber"
+                ref={landlineNumberRef}
+              />
+            </div>
           </div>
-          <div>
-            <label className="form-label">Pincode</label>
-            <input
-              type="text"
-              className="form-control"
-              name="pinCode"
-              ref={pinCodeRefC}
-            />
+          <label className="form-label">Email</label>
+          <input
+            type="text"
+            className="form-control"
+            name="emailId"
+            ref={emailIdRef}
+          />
+          <div className="statefromboard">
+            <div>
+              <label className="form-label">10+2 Exam State</label>
+              <input
+                type="text"
+                className="form-control"
+                name="tenPlusTwoExamState"
+                ref={tenPlusTwoExamStateRef}
+              />
+            </div>
+            <div>
+              <label className="form-label">
+                Serving or Retired Defence / Paramilitary Personnel / Martyrs
+                Ward (son/daughter)
+              </label>
+              <br></br>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+                name="forcesBackground"
+                ref={forcesBackgroundRef}
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Yes
+              </label>
+            </div>
           </div>
-        </div>
-        <label className="form-label">Permanent Address</label>
-        <input
-          type="text"
-          className="form-control"
-          name="lineOne"
-          ref={lineOneRef}
-        />
-        <div className="area">
-          <div>
-            <label className="form-label">District</label>
-            <input
-              type="text"
-              className="form-control"
-              name="district"
-              ref={districtRef}
-            />
+          <label className="form-label">
+            Choice of Branch (In Order of Priority)
+          </label>
+          <div className="branch">
+            <div className="branch-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Branch</th>
+                    <th scope="col">Code</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Bioinformatics</td>
+                    <td>A</td>
+                  </tr>
+                  <tr>
+                    <td>Biotechnology</td>
+                    <td>B</td>
+                  </tr>
+                  <tr>
+                    <td>Civil Engineering</td>
+                    <td colspan="2">C</td>
+                  </tr>
+                  <tr>
+                    <td>Computer Science Engineering</td>
+                    <td colspan="2">D</td>
+                  </tr>
+                  <tr>
+                    <td>Information Technology</td>
+                    <td colspan="2">E</td>
+                  </tr>
+                  <tr>
+                    <td>Electronics Communication Engineering</td>
+                    <td colspan="2">F</td>
+                  </tr>
+                  <tr>
+                    <td>Electronics Computer Engineering</td>
+                    <td colspan="2">G</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="branch-form">
+              <label className="form-label">
+                <strong>
+                  <center>PRIORITY</center>
+                </strong>
+              </label>
+              <label className="form-label">
+                <strong>
+                  <center>CODE</center>
+                </strong>
+              </label>
+              <label className="form-label">
+                <center>Choice 1</center>
+              </label>
+              <select
+                className="form-select"
+                name="choiceOne"
+                ref={choiceOneRef}
+              >
+                <option selected disabled>
+                  Select Choice
+                </option>
+                <option value={"BT"}>Bioinformatics</option>
+                <option value={"BI"}>Biotechnology</option>
+                <option value={"CE"}>Civil Engineering</option>
+                <option value={"CSE"}>Computer Science Engineering</option>
+                <option value={"IT"}>Information Technology</option>
+                <option value={"ECE"}>
+                  Electronics Communication Engineering
+                </option>
+                <option value={"ECM"}>Electronics Computer Engineering</option>
+              </select>
+              <label className="form-label">
+                <center>Choice 2</center>
+              </label>
+              <select
+                className="form-select"
+                name="choiceTwo"
+                ref={choiceTwoRef}
+              >
+                <option selected disabled>
+                  Select Choice
+                </option>
+                <option value={"BT"}>Bioinformatics</option>
+                <option value={"BI"}>Biotechnology</option>
+                <option value={"CE"}>Civil Engineering</option>
+                <option value={"CSE"}>Computer Science Engineering</option>
+                <option value={"IT"}>Information Technology</option>
+                <option value={"ECE"}>
+                  Electronics Communication Engineering
+                </option>
+                <option value={"ECM"}>Electronics Computer Engineering</option>
+              </select>
+              <label className="form-label">
+                <center>Choice 3</center>
+              </label>
+              <select
+                className="form-select"
+                name="choiceThree"
+                ref={choiceThreeRef}
+              >
+                <option selected disabled>
+                  Select Choice
+                </option>
+                <option value={"BT"}>Bioinformatics</option>
+                <option value={"BI"}>Biotechnology</option>
+                <option value={"CE"}>Civil Engineering</option>
+                <option value={"CSE"}>Computer Science Engineering</option>
+                <option value={"IT"}>Information Technology</option>
+                <option value={"ECE"}>
+                  Electronics Communication Engineering
+                </option>
+                <option value={"ECM"}>Electronics Computer Engineering</option>
+              </select>
+              <label className="form-label">
+                <center>Choice 4</center>
+              </label>
+              <select
+                className="form-select"
+                name="choiceFour"
+                ref={choiceFourRef}
+              >
+                <option selected disabled>
+                  Select Choice
+                </option>
+                <option value={"BT"}>Bioinformatics</option>
+                <option value={"BI"}>Biotechnology</option>
+                <option value={"CE"}>Civil Engineering</option>
+                <option value={"CSE"}>Computer Science Engineering</option>
+                <option value={"IT"}>Information Technology</option>
+                <option value={"ECE"}>
+                  Electronics Communication Engineering
+                </option>
+                <option value={"ECM"}>Electronics Computer Engineering</option>
+              </select>
+              <label className="form-label">
+                <center>Choice 5</center>
+              </label>
+              <select
+                className="form-select"
+                name="choiceFive"
+                ref={choiceFiveRef}
+              >
+                <option selected disabled>
+                  Select Choice
+                </option>
+                <option value={"BT"}>Bioinformatics</option>
+                <option value={"BI"}>Biotechnology</option>
+                <option value={"CE"}>Civil Engineering</option>
+                <option value={"CSE"}>Computer Science Engineering</option>
+                <option value={"IT"}>Information Technology</option>
+                <option value={"ECE"}>
+                  Electronics Communication Engineering
+                </option>
+                <option value={"ECM"}>Electronics Computer Engineering</option>
+              </select>
+              <label className="form-label">
+                <center>Choice 6</center>
+              </label>
+              <select
+                className="form-select"
+                name="choiceSix"
+                ref={choiceSixRef}
+              >
+                <option selected disabled>
+                  Select Choice
+                </option>
+                <option value={"BT"}>Bioinformatics</option>
+                <option value={"BI"}>Biotechnology</option>
+                <option value={"CE"}>Civil Engineering</option>
+                <option value={"CSE"}>Computer Science Engineering</option>
+                <option value={"IT"}>Information Technology</option>
+                <option value={"ECE"}>
+                  Electronics Communication Engineering
+                </option>
+                <option value={"ECM"}>Electronics Computer Engineering</option>
+              </select>
+              <label className="form-label">
+                <center>Choice 7</center>
+              </label>
+              <select
+                className="form-select"
+                name="choice7"
+                ref={choiceSevenRef}
+              >
+                <option selected disabled>
+                  Select Choice
+                </option>
+                <option value={"BT"}>Bioinformatics</option>
+                <option value={"BI"}>Biotechnology</option>
+                <option value={"CE"}>Civil Engineering</option>
+                <option value={"CSE"}>Computer Science Engineering</option>
+                <option value={"IT"}>Information Technology</option>
+                <option value={"ECE"}>
+                  Electronics Communication Engineering
+                </option>
+                <option value={"ECM"}>Electronics Computer Engineering</option>
+              </select>
+            </div>
           </div>
-          <div>
-            <label className="form-label">State</label>
-            <input
-              type="text"
-              className="form-control"
-              name="state"
-              ref={stateRef}
-            />
-          </div>
-          <div>
-            <label className="form-label">Pincode</label>
-            <input
-              type="text"
-              className="form-control"
-              name="pinCode"
-              ref={pinCodeRef}
-            />
-          </div>
-        </div>
-        <label className="form-label">Contact Details</label>
-        <div className="contact">
-          <div>
-            <label className="form-label">Mobile Number</label>
-            <input
-              type="text"
-              className="form-control"
-              name="mobileNumber"
-              ref={mobileNumberRef}
-            />
-          </div>
-          <div>
-            <label className="form-label">Telephone Number</label>
-            <input
-              type="text"
-              className="form-control"
-              name="landlineNumber"
-              ref={landlineNumberRef}
-            />
-          </div>
-        </div>
-        <label className="form-label">Email</label>
-        <input
-          type="text"
-          className="form-control"
-          name="emailId"
-          ref={emailIdRef}
-        />
-        <div className="statefromboard">
-          <div>
-            <label className="form-label">10+2 Exam State</label>
-            <input
-              type="text"
-              className="form-control"
-              name="tenPlusTwoExamState"
-              ref={tenPlusTwoExamStateRef}
-            />
-          </div>
-          <div>
-            <label className="form-label">
-              Serving or Retired Defence / Paramilitary Personnel / Martyrs Ward
-              (son/daughter)
-            </label>
-            <br></br>
+          <label className="form-label">Declaration by the Student:</label>
+          <br></br>
+          <div className="declaration">
             <input
               class="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
-              name="forcesBackground"
-              ref={forcesBackgroundRef}
+              name="declaraction"
             />
             <label class="form-check-label" for="flexCheckDefault">
-              Yes
+              I, hereby declare that all the particulars stated in this
+              application form are true to the best of my knowledge and belief.
+              I have read and understood the Information Brochure and the
+              Admission procedure and I shall abide by them. In the event of
+              suppression or distortion of any fact and understand like date of
+              birth, nationality, category, qualification, etc. made in my
+              application form, I understand that I will be denied the
+              opportunity to be admitted to JUIT and if already admitted, my
+              admission would stand cancelled. I also understand that the
+              decision of JUIT regarding my admission will be final and binding
+              to me.
             </label>
           </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <center>
+            <button type="submit" className="submit" onClick={onSubmitClicked}>
+              Submit
+            </button>
+          </center>
+          <br></br>
+          <br></br>
+          <br></br>
+        </form>
+      </div>
+      <div className="footer">
+        <div>
+          <center>© Copyright 2020.www.juit.ac.in. All Rights Reserved.</center>
         </div>
-        <label className="form-label">
-          Choice of Branch (In Order of Priority)
-        </label>
-        <div className="branch">
-          <div className="branch-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Branch</th>
-                  <th scope="col">Code</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Bioinformatics</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Biotechnology</td>
-                  <td>B</td>
-                </tr>
-                <tr>
-                  <td>Civil Engineering</td>
-                  <td colspan="2">C</td>
-                </tr>
-                <tr>
-                  <td>Computer Science Engineering</td>
-                  <td colspan="2">D</td>
-                </tr>
-                <tr>
-                  <td>Information Technology</td>
-                  <td colspan="2">E</td>
-                </tr>
-                <tr>
-                  <td>Electronics Communication Engineering</td>
-                  <td colspan="2">F</td>
-                </tr>
-                <tr>
-                  <td>Electronics Computer Engineering</td>
-                  <td colspan="2">G</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="branch-form">
-            <label className="form-label">
-              <strong>
-                <center>PRIORITY</center>
-              </strong>
-            </label>
-            <label className="form-label">
-              <strong>
-                <center>CODE</center>
-              </strong>
-            </label>
-            <label className="form-label">
-              <center>Choice 1</center>
-            </label>
-            <select className="form-select" name="choiceOne" ref={choiceOneRef}>
-              <option selected disabled>
-                Select Choice
-              </option>
-              <option value={"BT"}>Bioinformatics</option>
-              <option value={"BI"}>Biotechnology</option>
-              <option value={"CE"}>Civil Engineering</option>
-              <option value={"CSE"}>Computer Science Engineering</option>
-              <option value={"IT"}>Information Technology</option>
-              <option value={"ECE"}>
-                Electronics Communication Engineering
-              </option>
-              <option value={"ECM"}>Electronics Computer Engineering</option>
-            </select>
-            <label className="form-label">
-              <center>Choice 2</center>
-            </label>
-            <select className="form-select" name="choiceTwo" ref={choiceTwoRef}>
-              <option selected disabled>
-                Select Choice
-              </option>
-              <option value={"BT"}>Bioinformatics</option>
-              <option value={"BI"}>Biotechnology</option>
-              <option value={"CE"}>Civil Engineering</option>
-              <option value={"CSE"}>Computer Science Engineering</option>
-              <option value={"IT"}>Information Technology</option>
-              <option value={"ECE"}>
-                Electronics Communication Engineering
-              </option>
-              <option value={"ECM"}>Electronics Computer Engineering</option>
-            </select>
-            <label className="form-label">
-              <center>Choice 3</center>
-            </label>
-            <select
-              className="form-select"
-              name="choiceThree"
-              ref={choiceThreeRef}
-            >
-              <option selected disabled>
-                Select Choice
-              </option>
-              <option value={"BT"}>Bioinformatics</option>
-              <option value={"BI"}>Biotechnology</option>
-              <option value={"CE"}>Civil Engineering</option>
-              <option value={"CSE"}>Computer Science Engineering</option>
-              <option value={"IT"}>Information Technology</option>
-              <option value={"ECE"}>
-                Electronics Communication Engineering
-              </option>
-              <option value={"ECM"}>Electronics Computer Engineering</option>
-            </select>
-            <label className="form-label">
-              <center>Choice 4</center>
-            </label>
-            <select
-              className="form-select"
-              name="choiceFour"
-              ref={choiceFourRef}
-            >
-              <option selected disabled>
-                Select Choice
-              </option>
-              <option value={"BT"}>Bioinformatics</option>
-              <option value={"BI"}>Biotechnology</option>
-              <option value={"CE"}>Civil Engineering</option>
-              <option value={"CSE"}>Computer Science Engineering</option>
-              <option value={"IT"}>Information Technology</option>
-              <option value={"ECE"}>
-                Electronics Communication Engineering
-              </option>
-              <option value={"ECM"}>Electronics Computer Engineering</option>
-            </select>
-            <label className="form-label">
-              <center>Choice 5</center>
-            </label>
-            <select
-              className="form-select"
-              name="choiceFive"
-              ref={choiceFiveRef}
-            >
-              <option selected disabled>
-                Select Choice
-              </option>
-              <option value={"BT"}>Bioinformatics</option>
-              <option value={"BI"}>Biotechnology</option>
-              <option value={"CE"}>Civil Engineering</option>
-              <option value={"CSE"}>Computer Science Engineering</option>
-              <option value={"IT"}>Information Technology</option>
-              <option value={"ECE"}>
-                Electronics Communication Engineering
-              </option>
-              <option value={"ECM"}>Electronics Computer Engineering</option>
-            </select>
-            <label className="form-label">
-              <center>Choice 6</center>
-            </label>
-            <select className="form-select" name="choiceSix" ref={choiceSixRef}>
-              <option selected disabled>
-                Select Choice
-              </option>
-              <option value={"BT"}>Bioinformatics</option>
-              <option value={"BI"}>Biotechnology</option>
-              <option value={"CE"}>Civil Engineering</option>
-              <option value={"CSE"}>Computer Science Engineering</option>
-              <option value={"IT"}>Information Technology</option>
-              <option value={"ECE"}>
-                Electronics Communication Engineering
-              </option>
-              <option value={"ECM"}>Electronics Computer Engineering</option>
-            </select>
-            <label className="form-label">
-              <center>Choice 7</center>
-            </label>
-            <select className="form-select" name="choice7" ref={choiceSevenRef}>
-              <option selected disabled>
-                Select Choice
-              </option>
-              <option value={"BT"}>Bioinformatics</option>
-              <option value={"BI"}>Biotechnology</option>
-              <option value={"CE"}>Civil Engineering</option>
-              <option value={"CSE"}>Computer Science Engineering</option>
-              <option value={"IT"}>Information Technology</option>
-              <option value={"ECE"}>
-                Electronics Communication Engineering
-              </option>
-              <option value={"ECM"}>Electronics Computer Engineering</option>
-            </select>
-          </div>
+        <div>
+          <center>Website Last Updated on 19-01-2022</center>
         </div>
-        <label className="form-label">Declaration by the Student:</label>
-        <br></br>
-        <div className="declaration">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-            name="declaraction"
-          />
-          <label class="form-check-label" for="flexCheckDefault">
-            I, hereby declare that all the particulars stated in this
-            application form are true to the best of my knowledge and belief. I
-            have read and understood the Information Brochure and the Admission
-            procedure and I shall abide by them. In the event of suppression or
-            distortion of any fact and understand like date of birth,
-            nationality, category, qualification, etc. made in my application
-            form, I understand that I will be denied the opportunity to be
-            admitted to JUIT and if already admitted, my admission would stand
-            cancelled. I also understand that the decision of JUIT regarding my
-            admission will be final and binding to me.
-          </label>
+        <div>
+          <center>Design and Development by Aryaman & Dev</center>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <center>
-          <button type="submit" className="submit" onClick={onSubmitClicked}>
-            Submit
-          </button>
-        </center>
-        <br></br>
-        <br></br>
-        <br></br>
-      </form>
+      </div>
     </div>
   );
 }

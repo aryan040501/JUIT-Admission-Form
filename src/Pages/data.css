@@ -1,0 +1,30 @@
+.body {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+
+.form {
+  margin-top: 20vh;
+  display: grid;
+  grid-template-rows: 30% 40% 30%;
+}
+
+.inputfield {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.button {
+  margin-right: 25vw;
+  margin-left: 25vw;
+  background-color: #6515fe; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+}

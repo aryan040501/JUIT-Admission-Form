@@ -60,6 +60,396 @@ function FormBody() {
   const [nation,setNation]=useState('');
   const [passErr,setPassErr]=useState('');
   
+  const [dob,setDob]=useState('');
+  const [boardName,setBoardName]=useState('');
+  const [maxMarks,setMaxMarks]=useState('');
+  const [obtainMarks,setObtainMarks]=useState('');
+  const [roll,setRoll]=useState('');
+  const [yop,setYop]=useState('');
+  
+  
+  const [maxMath,setMaxMath]=useState('');
+  const [obtMath,setObtMath]=useState('');
+  const [maxPhy,setMaxPhy]=useState('');
+  const [obtPhy,setObtPhy]=useState('');
+  const [maxChem,setMaxChem]=useState('');
+  const [obtChem,setObtChem]=useState('');
+  const [maxEng,setMaxEng]=useState('');
+  const [obtEng,setObtEng]=useState('');
+  const [maxComp,setMaxComp]=useState('');
+  const [obtComp,setObtComp]=useState('');
+  const [maxTot,setMaxTot]=useState('');
+  const [obtTot,setObtTot]=useState('');
+  
+  const [address,setAddress]=useState('');
+  const [district,setDistrict]=useState('');
+  const [state,setState]=useState('');
+  const [pin,setPin]=useState('');
+  const [paddress,setPaddress]=useState('');
+  const [mob,setMob]=useState('');
+  const [tel,setTel]=useState('');
+  const [email,setEmail]=useState('');
+  const [examState,setExamState]=useState('');
+
+
+  function examstateHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setExamState(true)
+    }
+    else
+    {
+      setExamState(false)
+    }
+    setExamState(item)
+    
+  }
+  function emailHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setEmail(true)
+    }
+    else
+    {
+      setEmail(false)
+    }
+    setEmail(item)
+    
+  }
+  function telHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setTel(true)
+    }
+    else
+    {
+      setTel(false)
+    }
+    setTel(item)
+    
+  }
+  function mobHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setMob(true)
+    }
+    else
+    {
+      setMob(false)
+    }
+    setMob(item)
+    
+  }
+  function paddressHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setPaddress(true)
+    }
+    else
+    {
+      setPaddress(false)
+    }
+    setPaddress(item)
+    
+  }
+  function pinHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setPin(true)
+    }
+    else
+    {
+      setPin(false)
+    }
+    setPin(item)
+    
+  }
+  function stateHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setState(true)
+    }
+    else
+    {
+      setState(false)
+    }
+    setState(item)
+    
+  }
+  function districtHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setDistrict(true)
+    }
+    else
+    {
+      setDistrict(false)
+    }
+    setDistrict(item)
+    
+  }
+  function addressHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setAddress(true)
+    }
+    else
+    {
+      setAddress(false)
+    }
+    setAddress(item)
+    
+  }
+  // marker
+  function ObtTotHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setObtTot(true)
+    }
+    else
+    {
+      setObtTot(false)
+    }
+    setObtTot(item)
+
+}
+  function maxTotHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setMaxTot(true)
+    }
+    else
+    {
+      setMaxTot(false)
+    }
+    setMaxTot(item)
+  }
+  //comp
+  function ObtCompHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setObtComp(true)
+    }
+    else
+    {
+      setObtComp(false)
+    }
+    setObtComp(item)
+
+}
+  function maxCompHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setMaxComp(true)
+    }
+    else
+    {
+      setMaxComp(false)
+    }
+    setMaxComp(item)
+  }
+//chem
+  function ObtChemHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setObtChem(true)
+    }
+    else
+    {
+      setObtChem(false)
+    }
+    setObtChem(item)
+
+}
+  function maxChemHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setMaxChem(true)
+    }
+    else
+    {
+      setMaxChem(false)
+    }
+    setMaxChem(item)
+  }
+  //eng
+  function ObtEngHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setObtEng(true)
+    }
+    else
+    {
+      setObtEng(false)
+    }
+    setObtEng(item)
+
+}
+  function maxEngHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setMaxEng(true)
+    }
+    else
+    {
+      setMaxEng(false)
+    }
+    setMaxEng(item)
+  }
+
+  //phy
+  function ObtPhyHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setObtPhy(true)
+    }
+    else
+    {
+      setObtPhy(false)
+    }
+    setObtPhy(item)
+
+}
+  function maxPhyHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setMaxPhy(true)
+    }
+    else
+    {
+      setMaxPhy(false)
+    }
+    setMaxPhy(item)
+  }
+
+  // marker
+  function ObtmathHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setObtMath(true)
+    }
+    else
+    {
+      setObtMath(false)
+    }
+    setObtMath(item)
+
+}
+  function maxmathHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setMaxMath(true)
+    }
+    else
+    {
+      setMaxMath(false)
+    }
+    setMaxMath(item)
+
+}
+
+// marker
+  function yopHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setYop(true)
+    }
+    else
+    {
+      setYop(false)
+    }
+    setYop(item)
+
+}
+  function rollHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setRoll(true)
+    }
+    else
+    {
+      setRoll(false)
+    }
+    setRoll(item)
+
+}
+
+  function obtainHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setObtainMarks(true)
+    }
+    else
+    {
+      setObtainMarks(false)
+    }
+    setObtainMarks(item)
+
+}
+  function maxHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setMaxMarks(true)
+    }
+    else
+    {
+      setMaxMarks(false)
+    }
+    setMaxMarks(item)
+
+}
+  function boardHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setBoardName(true)
+    }
+    else
+    {
+      setBoardName(false)
+    }
+    setBoardName(item)
+
+}
+  function dobHandler(e){
+    let item=e.target.value;
+    if(item.length<3 )
+    {
+      setDob(true)
+    }
+    else
+    {
+      setDob(false)
+    }
+    setDob(item)
+
+}
+
   function nameHandler(e){
       let item=e.target.value;
       if(item.length<3 )

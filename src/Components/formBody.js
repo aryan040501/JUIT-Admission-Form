@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./formBody.css";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import axios from "../axios";
 
 function FormBody() {
+  
   const candidateNameRef = useRef("");
   const fathersNameRef = useRef("");
   const mothersNameRef = useRef("");
@@ -53,9 +54,324 @@ function FormBody() {
   const choiceSixRef = useRef("");
   const choiceSevenRef = useRef("");
   const forcesBackgroundRef = useRef("");
+  const [name,setName]=useState('');
 
+  const [fatherName,setfatherName]=useState("");
+  const [motherName,setmotherName]=useState("");
+  const [nation,setNation]=useState('');
+  
+  const [dob,setDob]=useState('');
+  const [boardName,setBoardName]=useState('');
+  const [maxMarks,setMaxMarks]=useState('');
+  const [obtainMarks,setObtainMarks]=useState('');
+  const [roll,setRoll]=useState('');
+  const [yop,setYop]=useState('');
+  
+  
+  const [maxMath,setMaxMath]=useState('');
+  const [obtMath,setObtMath]=useState('');
+  const [maxPhy,setMaxPhy]=useState('');
+  const [obtPhy,setObtPhy]=useState('');
+  const [maxChem,setMaxChem]=useState('');
+  const [obtChem,setObtChem]=useState('');
+  const [maxEng,setMaxEng]=useState('');
+  const [obtEng,setObtEng]=useState('');
+  const [maxComp,setMaxComp]=useState('');
+  const [obtComp,setObtComp]=useState('');
+  const [maxTot,setMaxTot]=useState('');
+  const [obtTot,setObtTot]=useState('');
+  
+  const [address,setAddress]=useState('');
+  const [district,setDistrict]=useState('');
+  const [state,setState]=useState('');
+  const [pin,setPin]=useState('');
+  const [paddress,setPaddress]=useState('');
+  const [mob,setMob]=useState('');
+  const [tel,setTel]=useState('');
+  const [email,setEmail]=useState('');
+  const [examState,setExamState]=useState('');
+
+
+  
   const onSubmitClicked = (e) => {
     e.preventDefault();
+    if(name.length<3 )
+    {
+        alert("Candidate name should be more than 3 characters");
+    }
+    else
+    {
+        console.log(name);
+    }
+
+    if(fatherName.length<3 )
+    {
+        alert("Father's name should be more than 3 characters");
+    }
+    else
+    {
+      console.log(fatherName);
+    }
+
+    if(motherName.length<3 )
+    {
+        alert("Mother's name should be more than 3 characters");
+    }
+    else
+    {
+          console.log(motherName);
+    }
+
+    if(dob.length<3 )
+    {
+        alert("Date of birth  should be more than 3 characters");
+    }
+    else
+    {
+      console.log(dob);
+    }
+
+    if(boardName>6 )
+    {
+        alert("Board name should be in short form like CBSE,ICSE etc");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(maxMarks.length>3 )
+    {
+        alert("Maximum marks cannot be more than 500");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtainMarks.length>3 )
+    {
+        alert("Obtained marks cannot be more than 500");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+    if(roll.length>6 )
+    {
+        alert("Roll number cannot be more than 6 numbers");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(yop.length>4 )
+    {
+        alert("Year of passing cannot be more than 4 numbers");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(maxMath.length>3 )
+    {
+        alert("Maximum marks in maths cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtMath.length>3 )
+    {
+        alert("Obtained marks in maths cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(maxPhy.length>3 )
+    {
+        alert("Maximum marks in physics cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtPhy.length>3 )
+    {
+        alert("Obtained marks in physics cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+    if(maxChem.length>3 )
+    {
+        alert("Maximum marks in chemistry cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtChem.length>3 )
+    {
+        alert("Obtained marks in chemistry cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+    if(maxEng.length>3 )
+    {
+        alert("Maximum marks in english cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtEng.length>3 )
+    {
+        alert("Obtained marks in english cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(maxComp.length>3 )
+    {
+        alert("Maximum marks in computer cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtComp.length>3 )
+    {
+        alert("Obtained marks in computer cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+
+    if(maxTot.length>3 )
+    {
+        alert("Total marks cannot be more than 500");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtTot.length>3 )
+    {
+        alert("Obtained marks in maths cannot be more than 500");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(address.length<3 )
+    {
+        alert("Address cannot be less than 3 characters");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(district.length>3 )
+    {
+      alert("District cannot be less than 3 characters");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(state.length>3 )
+    {
+        alert("Write full name of your state");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+    if(pin.length>6 || pin.length<6 )
+    {
+        alert("Pincode length should be equal to 6");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(paddress.length>3 )
+    {
+      alert("Address cannot be less than 3 characters");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(mob.length<10 || mob.length>10 )
+    {
+      alert("Mobile number should be of 10 numbers");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(tel.length<10 || tel.length>10 )
+    {
+      alert("Telephone number should be of 10 numbers");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(email.length>3 )
+    {
+      alert("Email should be more than 3 characters");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(examState.length>3 )
+    {
+      alert("Write full name of your state");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
     const postData = {
       candidateName: candidateNameRef.current.value,
       fathersName: fathersNameRef.current.value,
@@ -126,6 +442,13 @@ function FormBody() {
     };
     axios.post("/", { postData });
     console.log(postData);
+    // const generatePdf =()=>{
+    //   var doc = new jsPDF("p", "pt", "a4");
+    // doc.html(document.querySelector("content"), {
+    // callback: function (pdf) {
+    //   pdf.save("test.pdf");
+    // }})
+    // }
     const input = document.getElementById("divToPrint");
     console.log("hehehe", input);
     html2canvas(input).then((canvas) => {
@@ -134,7 +457,7 @@ function FormBody() {
       const pdf = new jsPDF("p", "pt", "a4", false);
       pdf.addImage(imgData, "PNG", 50, 50, 500, 0, undefined, false);
       // pdf.output('dataurlnewwindow');
-      pdf.save("download.pdf");
+      pdf.save("mypdf.pdf");
     });
   };
 
@@ -179,29 +502,31 @@ function FormBody() {
         <form>
           <div className="halfnhalf">
             <div className="form-half1">
-              <label className="form-label">Candidate's Name</label>
+              <label className="form-label-name">Candidate's Name</label>
               <input
+              
                 type="text"
                 ref={candidateNameRef}
                 className="form-control"
                 name="candidateName"
                 required="required"
+                
               />
-              <label className="form-label">Father's Name</label>
+              <label className="form-label-name">Father's Name</label>
               <input
                 type="text"
                 className="form-control"
                 name="fathersName"
                 ref={fathersNameRef}
               />
-              <label className="form-label">Mother's Name</label>
+              <label className="form-label-name">Mother's Name</label>
               <input
                 type="text"
                 className="form-control"
                 name="mothersName"
                 ref={mothersNameRef}
               />
-              <label className="form-label">Date of Birth</label>
+              <label className="form-label-name">Date of Birth</label>
               <input
                 type="date"
                 className="form-control"
@@ -210,20 +535,20 @@ function FormBody() {
               />
             </div>
             <div className="form-half2">
-              <label className="form-label">Nationality</label>
+              <label className="form-label-name">Nationality</label>
               <input
                 type="text"
                 className="form-control"
                 name="nationality"
                 ref={nationalityRef}
               />
-              <label className="form-label">Gender</label>
+              <label className="form-label-name">Gender</label>
               <select className="form-select" name="gender" ref={genderRef}>
                 <option value={"Male"}>Male</option>
                 <option value={"Female"}>Female</option>
                 <option value={"Other(s)"}>Other(s)</option>
               </select>
-              <label className="form-label">Category</label>
+              <label className="form-label-name">Category</label>
               <select className="form-select" name="category" ref={categoryRef}>
                 <option value={"General"}>General</option>
                 <option value={"OBC"}>OBC</option>
@@ -231,7 +556,7 @@ function FormBody() {
                 <option value={"ST"}>ST</option>
                 <option value={"EWS"}>EWS</option>
               </select>
-              <label className="form-label">
+              <label className="form-label-name-person">
                 Person with Disability &nbsp;&nbsp;&nbsp;&nbsp;
               </label>
               <br></br>
@@ -255,46 +580,46 @@ function FormBody() {
           </label>
           <div className="exam">
             <div>
-              <label className="form-label">Name of Board</label>
+              <label className="form-label-score">Name of Board</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control-board"
                 name="nameOfBoard"
                 ref={nameOfBoardRef}
               />
             </div>
             <div>
-              <label className="form-label">Maximum Marks</label>
+              <label className="form-label-score">Maximum Marks</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control-board"
                 name="maximumMarks"
                 ref={maximumMarksTRef}
               />
             </div>
             <div>
-              <label className="form-label">Marks Obtained</label>
+              <label className="form-label-score">Marks Obtained</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control-board"
                 name="marksObtained"
                 ref={marksObtainedTRef}
               />
             </div>
             <div>
-              <label className="form-label">10+2 Roll No</label>
+              <label className="form-label-score">10+2 Roll No</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control-board"
                 name="rollNumber"
                 ref={rollNumberRef}
               />
             </div>
             <div>
-              <label className="form-label">Year of Passing</label>
+              <label className="form-label-score">Year of Passing</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control-board"
                 name="yearOfPassing"
                 ref={yearOfPassingRef}
               />
@@ -314,89 +639,71 @@ function FormBody() {
                 <strong>Marks</strong>
               </div>
               <div></div>
-              <div>Max Marks</div>
-              <div>Obtained</div>
+              <div className="marks">Max Marks</div>
+              <div className="marks">Obtained</div>
 
               <label className="form-label">Mathematics</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control-1"
                 name="maximumMarks"
                 ref={maximumMarksRef1}
               />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-2"
                 name="marksObtained"
                 ref={marksObtainedRef1}
               />
               <label className="form-label">Physics</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control-1"
                 name="maximumMarks"
                 ref={maximumMarksRef2}
               />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-2"
                 name="marksObtained"
                 ref={marksObtainedRef2}
               />
+             <label className="form-label">Chemistry</label>
               <input
                 type="text"
-                className="form-control"
-                placeholder="Subject3"
-                name="subjectName"
-                ref={subjectNameRef3}
-              />
-              <input
-                type="text"
-                className="form-control"
+                className="form-control-1"
                 name="maximumMarks"
                 ref={maximumMarksRef3}
               />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-2"
                 name="marksObtained"
                 ref={marksObtainedRef3}
               />
+              <label className="form-label">English</label>
               <input
                 type="text"
-                className="form-control"
-                placeholder="Subject4"
-                name="subjectName"
-                ref={subjectNameRef4}
-              />
-              <input
-                type="text"
-                className="form-control"
+                className="form-control-1"
                 name="maximumMarks"
                 ref={maximumMarksRef4}
               />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-2"
                 name="marksObtained"
                 ref={marksObtainedRef4}
               />
+              <label className="form-label">Computer / Hindi</label>
               <input
                 type="text"
-                className="form-control"
-                placeholder="Subject5"
-                name="subjectName"
-                ref={subjectNameRef5}
-              />
-              <input
-                type="text"
-                className="form-control"
+                className="form-control-1"
                 name="maximumMarks"
                 ref={maximumMarksRef5}
               />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-2"
                 name="marksObtained"
                 ref={marksObtainedRef5}
               />
@@ -407,13 +714,13 @@ function FormBody() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control-1"
                 name="totalMaximumMarks"
                 ref={totalMaximumMarksRef}
               />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-2"
                 name="totalMarksObtained"
                 ref={totalMarksObtainedRef}
               />
@@ -433,73 +740,81 @@ function FormBody() {
               higher score out of above mentioned eleven subjects.
             </div>
           </div>
-          <label className="form-label">Corresponding Address</label>
+          <label className="form-label-corres">Corresponding Address</label>
+          <br />
           <input
             type="text"
-            className="form-control"
+            className="form-control-address-1"
             name="lineOne"
             ref={lineOneRefC}
           />
           <div className="area">
             <div>
-              <label className="form-label">District</label>
+              <label className="form-label-tel">District</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address"
                 name="district"
                 ref={districtRefC}
               />
             </div>
             <div>
-              <label className="form-label">State</label>
+              <label className="form-label-tel">State</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address"
                 name="state"
                 ref={stateRefC}
               />
             </div>
             <div>
-              <label className="form-label">Pincode</label>
+              <label className="form-label-tel">Pincode</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address-34"
                 name="pinCode"
                 ref={pinCodeRefC}
               />
             </div>
           </div>
-          <label className="form-label">Permanent Address</label>
+          <label className="form-label-corres">Permanent Address</label>
+          <br />
           <input
             type="text"
-            className="form-control"
+            className="form-control-address-1"
             name="lineOne"
             ref={lineOneRef}
           />
           <div className="area">
             <div>
-              <label className="form-label">District</label>
+              <label className="form-label-tel">District</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address"
                 name="district"
                 ref={districtRef}
               />
             </div>
             <div>
-              <label className="form-label">State</label>
+              <label className="form-label-tel">State</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address"
                 name="state"
                 ref={stateRef}
               />
             </div>
             <div>
-              <label className="form-label">Pincode</label>
+              <label className="form-label-tel">Pincode</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address-34"
                 name="pinCode"
                 ref={pinCodeRef}
               />
@@ -508,43 +823,46 @@ function FormBody() {
           <label className="form-label">Contact Details</label>
           <div className="contact">
             <div>
-              <label className="form-label">Mobile Number</label>
+              <label className="form-label-tel">Mobile Number</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address"
                 name="mobileNumber"
                 ref={mobileNumberRef}
               />
             </div>
             <div>
-              <label className="form-label">Telephone Number</label>
+              <label className="form-label-tel">Telephone Number</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address-3"
                 name="landlineNumber"
                 ref={landlineNumberRef}
               />
             </div>
           </div>
-          <label className="form-label">Email</label>
+          <label className="form-label-corres">Email</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control-address-1"
             name="emailId"
             ref={emailIdRef}
           />
           <div className="statefromboard">
             <div>
-              <label className="form-label">10+2 Exam State</label>
+              <label className="form-label-tel">10+2 Exam State</label>
+              <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control-address"
                 name="tenPlusTwoExamState"
                 ref={tenPlusTwoExamStateRef}
               />
             </div>
             <div>
-              <label className="form-label">
+              <label className="form-label-serving">
                 Serving or Retired Defence / Paramilitary Personnel / Martyrs
                 Ward (son/daughter)
               </label>
@@ -562,7 +880,7 @@ function FormBody() {
               </label>
             </div>
           </div>
-          <label className="form-label">
+          <label className="form-label-choice">
             Choice of Branch (In Order of Priority)
           </label>
           <div className="branch">
@@ -617,11 +935,11 @@ function FormBody() {
                   <center>CODE</center>
                 </strong>
               </label>
-              <label className="form-label">
+              <label className="form-label-1">
                 <center>Choice 1</center>
               </label>
               <select
-                className="form-select"
+                className="form-select-1"
                 name="choiceOne"
                 ref={choiceOneRef}
               >
@@ -638,11 +956,11 @@ function FormBody() {
                 </option>
                 <option value={"ECM"}>Electronics Computer Engineering</option>
               </select>
-              <label className="form-label">
+              <label className="form-label-2">
                 <center>Choice 2</center>
               </label>
               <select
-                className="form-select"
+                className="form-select-1"
                 name="choiceTwo"
                 ref={choiceTwoRef}
               >
@@ -659,11 +977,11 @@ function FormBody() {
                 </option>
                 <option value={"ECM"}>Electronics Computer Engineering</option>
               </select>
-              <label className="form-label">
+              <label className="form-label-3">
                 <center>Choice 3</center>
               </label>
               <select
-                className="form-select"
+                className="form-select-1"
                 name="choiceThree"
                 ref={choiceThreeRef}
               >
@@ -680,11 +998,11 @@ function FormBody() {
                 </option>
                 <option value={"ECM"}>Electronics Computer Engineering</option>
               </select>
-              <label className="form-label">
+              <label className="form-label-4">
                 <center>Choice 4</center>
               </label>
               <select
-                className="form-select"
+                className="form-select-1"
                 name="choiceFour"
                 ref={choiceFourRef}
               >
@@ -701,11 +1019,11 @@ function FormBody() {
                 </option>
                 <option value={"ECM"}>Electronics Computer Engineering</option>
               </select>
-              <label className="form-label">
+              <label className="form-label-5">
                 <center>Choice 5</center>
               </label>
               <select
-                className="form-select"
+                className="form-select-1"
                 name="choiceFive"
                 ref={choiceFiveRef}
               >
@@ -722,11 +1040,11 @@ function FormBody() {
                 </option>
                 <option value={"ECM"}>Electronics Computer Engineering</option>
               </select>
-              <label className="form-label">
+              <label className="form-label-6">
                 <center>Choice 6</center>
               </label>
               <select
-                className="form-select"
+                className="form-select-1"
                 name="choiceSix"
                 ref={choiceSixRef}
               >
@@ -743,11 +1061,11 @@ function FormBody() {
                 </option>
                 <option value={"ECM"}>Electronics Computer Engineering</option>
               </select>
-              <label className="form-label">
+              <label className="form-label-7">
                 <center>Choice 7</center>
               </label>
               <select
-                className="form-select"
+                className="form-select-1"
                 name="choice7"
                 ref={choiceSevenRef}
               >
@@ -766,7 +1084,7 @@ function FormBody() {
               </select>
             </div>
           </div>
-          <label className="form-label">Declaration by the Student:</label>
+          <label className="form-label-dec">Declaration by the Student:</label>
           <br></br>
           <div className="declaration">
             <input

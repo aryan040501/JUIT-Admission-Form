@@ -54,11 +54,11 @@ function FormBody() {
   const choiceSixRef = useRef("");
   const choiceSevenRef = useRef("");
   const forcesBackgroundRef = useRef("");
-  const [name,setName]=useState("");
+  const [name,setName]=useState('');
+
   const [fatherName,setfatherName]=useState("");
   const [motherName,setmotherName]=useState("");
   const [nation,setNation]=useState('');
-  const [passErr,setPassErr]=useState('');
   
   const [dob,setDob]=useState('');
   const [boardName,setBoardName]=useState('');
@@ -92,458 +92,286 @@ function FormBody() {
   const [examState,setExamState]=useState('');
 
 
-  function examstateHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setExamState(true)
-    }
-    else
-    {
-      setExamState(false)
-    }
-    setExamState(item)
-    
-  }
-  function emailHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setEmail(true)
-    }
-    else
-    {
-      setEmail(false)
-    }
-    setEmail(item)
-    
-  }
-  function telHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setTel(true)
-    }
-    else
-    {
-      setTel(false)
-    }
-    setTel(item)
-    
-  }
-  function mobHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setMob(true)
-    }
-    else
-    {
-      setMob(false)
-    }
-    setMob(item)
-    
-  }
-  function paddressHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setPaddress(true)
-    }
-    else
-    {
-      setPaddress(false)
-    }
-    setPaddress(item)
-    
-  }
-  function pinHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setPin(true)
-    }
-    else
-    {
-      setPin(false)
-    }
-    setPin(item)
-    
-  }
-  function stateHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setState(true)
-    }
-    else
-    {
-      setState(false)
-    }
-    setState(item)
-    
-  }
-  function districtHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setDistrict(true)
-    }
-    else
-    {
-      setDistrict(false)
-    }
-    setDistrict(item)
-    
-  }
-  function addressHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setAddress(true)
-    }
-    else
-    {
-      setAddress(false)
-    }
-    setAddress(item)
-    
-  }
-  // marker
-  function ObtTotHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setObtTot(true)
-    }
-    else
-    {
-      setObtTot(false)
-    }
-    setObtTot(item)
-
-}
-  function maxTotHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setMaxTot(true)
-    }
-    else
-    {
-      setMaxTot(false)
-    }
-    setMaxTot(item)
-  }
-  //comp
-  function ObtCompHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setObtComp(true)
-    }
-    else
-    {
-      setObtComp(false)
-    }
-    setObtComp(item)
-
-}
-  function maxCompHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setMaxComp(true)
-    }
-    else
-    {
-      setMaxComp(false)
-    }
-    setMaxComp(item)
-  }
-//chem
-  function ObtChemHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setObtChem(true)
-    }
-    else
-    {
-      setObtChem(false)
-    }
-    setObtChem(item)
-
-}
-  function maxChemHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setMaxChem(true)
-    }
-    else
-    {
-      setMaxChem(false)
-    }
-    setMaxChem(item)
-  }
-  //eng
-  function ObtEngHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setObtEng(true)
-    }
-    else
-    {
-      setObtEng(false)
-    }
-    setObtEng(item)
-
-}
-  function maxEngHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setMaxEng(true)
-    }
-    else
-    {
-      setMaxEng(false)
-    }
-    setMaxEng(item)
-  }
-
-  //phy
-  function ObtPhyHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setObtPhy(true)
-    }
-    else
-    {
-      setObtPhy(false)
-    }
-    setObtPhy(item)
-
-}
-  function maxPhyHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setMaxPhy(true)
-    }
-    else
-    {
-      setMaxPhy(false)
-    }
-    setMaxPhy(item)
-  }
-
-  // marker
-  function ObtmathHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setObtMath(true)
-    }
-    else
-    {
-      setObtMath(false)
-    }
-    setObtMath(item)
-
-}
-  function maxmathHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setMaxMath(true)
-    }
-    else
-    {
-      setMaxMath(false)
-    }
-    setMaxMath(item)
-
-}
-
-// marker
-  function yopHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setYop(true)
-    }
-    else
-    {
-      setYop(false)
-    }
-    setYop(item)
-
-}
-  function rollHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setRoll(true)
-    }
-    else
-    {
-      setRoll(false)
-    }
-    setRoll(item)
-
-}
-
-  function obtainHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setObtainMarks(true)
-    }
-    else
-    {
-      setObtainMarks(false)
-    }
-    setObtainMarks(item)
-
-}
-  function maxHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setMaxMarks(true)
-    }
-    else
-    {
-      setMaxMarks(false)
-    }
-    setMaxMarks(item)
-
-}
-  function boardHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setBoardName(true)
-    }
-    else
-    {
-      setBoardName(false)
-    }
-    setBoardName(item)
-
-}
-  function dobHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setDob(true)
-    }
-    else
-    {
-      setDob(false)
-    }
-    setDob(item)
-
-}
-
-  function nameHandler(e){
-      let item=e.target.value;
-      if(item.length<3 )
-      {
-        setName(true)
-      }
-      else
-      {
-        setName(false)
-      }
-      setName(item)
-  }
-  function fatherHandler(e){
-      let item=e.target.value;
-      if(item.length<3 )
-      {
-        setfatherName(true)
-      }
-      else
-      {
-        setfatherName(false)
-      }
-      setfatherName(item)
-
-  }
-  function motherHandler(e){
-    let item=e.target.value;
-    if(item.length<3 )
-    {
-      setmotherName(true)
-    }
-    else
-    {
-      setmotherName(false)
-    }
-    setfatherName(item)
-
-}
-function nationHandler(e){
-  let item=e.target.value;
-  if(item.length<3 )
-  {
-    setNation(true)
-  }
-  else
-  {
-    setNation(false)
-  }
-  setNation(item)
-
-}
-function passwordHandler(e){
-  let item=e.target.value;
-  if(item.length<3 )
-  {
-    setfatherName(true)
-  }
-  else
-  {
-    setfatherName(false)
-  }
-  setfatherName(item)
-
-}
-
-function passwordHandler(e){
-  let item=e.target.value;
-  if(item.length<3 )
-  {
-    setfatherName(true)
-  }
-  else
-  {
-    setfatherName(false)
-  }
-  setfatherName(item)
-
-}
-
-function passwordHandler(e){
-  let item=e.target.value;
-  if(item.length<3 )
-  {
-    setfatherName(true)
-  }
-  else
-  {
-    setfatherName(false)
-  }
-  setfatherName(item)
-
-}
+  
   const onSubmitClicked = (e) => {
     e.preventDefault();
+    if(name.length<3 )
+    {
+        alert("Candidate name should be more than 3 characters");
+    }
+    else
+    {
+        console.log(name);
+    }
+
+    if(fatherName.length<3 )
+    {
+        alert("Father's name should be more than 3 characters");
+    }
+    else
+    {
+      console.log(fatherName);
+    }
+
+    if(motherName.length<3 )
+    {
+        alert("Mother's name should be more than 3 characters");
+    }
+    else
+    {
+          console.log(motherName);
+    }
+
+    if(dob.length<3 )
+    {
+        alert("Date of birth  should be more than 3 characters");
+    }
+    else
+    {
+      console.log(dob);
+    }
+
+    if(boardName>6 )
+    {
+        alert("Board name should be in short form like CBSE,ICSE etc");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(maxMarks.length>3 )
+    {
+        alert("Maximum marks cannot be more than 500");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtainMarks.length>3 )
+    {
+        alert("Obtained marks cannot be more than 500");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+    if(roll.length>6 )
+    {
+        alert("Roll number cannot be more than 6 numbers");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(yop.length>4 )
+    {
+        alert("Year of passing cannot be more than 4 numbers");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(maxMath.length>3 )
+    {
+        alert("Maximum marks in maths cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtMath.length>3 )
+    {
+        alert("Obtained marks in maths cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(maxPhy.length>3 )
+    {
+        alert("Maximum marks in physics cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtPhy.length>3 )
+    {
+        alert("Obtained marks in physics cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+    if(maxChem.length>3 )
+    {
+        alert("Maximum marks in chemistry cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtChem.length>3 )
+    {
+        alert("Obtained marks in chemistry cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+    if(maxEng.length>3 )
+    {
+        alert("Maximum marks in english cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtEng.length>3 )
+    {
+        alert("Obtained marks in english cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(maxComp.length>3 )
+    {
+        alert("Maximum marks in computer cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtComp.length>3 )
+    {
+        alert("Obtained marks in computer cannot be more than 100");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+
+    if(maxTot.length>3 )
+    {
+        alert("Total marks cannot be more than 500");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(obtTot.length>3 )
+    {
+        alert("Obtained marks in maths cannot be more than 500");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(address.length<3 )
+    {
+        alert("Address cannot be less than 3 characters");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(district.length>3 )
+    {
+      alert("District cannot be less than 3 characters");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(state.length>3 )
+    {
+        alert("Write full name of your state");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
+    if(pin.length>6 || pin.length<6 )
+    {
+        alert("Pincode length should be equal to 6");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(paddress.length>3 )
+    {
+      alert("Address cannot be less than 3 characters");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(mob.length<10 || mob.length>10 )
+    {
+      alert("Mobile number should be of 10 numbers");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(tel.length<10 || tel.length>10 )
+    {
+      alert("Telephone number should be of 10 numbers");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(email.length>3 )
+    {
+      alert("Email should be more than 3 characters");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+    if(examState.length>3 )
+    {
+      alert("Write full name of your state");
+    }
+    else
+    {
+      console.log(boardName);
+    }
+
+
     const postData = {
       candidateName: candidateNameRef.current.value,
       fathersName: fathersNameRef.current.value,
@@ -682,6 +510,7 @@ function passwordHandler(e){
                 className="form-control"
                 name="candidateName"
                 required="required"
+                
               />
               <label className="form-label-name">Father's Name</label>
               <input

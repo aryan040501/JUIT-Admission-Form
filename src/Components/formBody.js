@@ -946,15 +946,15 @@ function FormBody() {
                 <option selected disabled>
                   Select Choice
                 </option>
-                <option value={"BT"}>Bioinformatics</option>
-                <option value={"BI"}>Biotechnology</option>
-                <option value={"CE"}>Civil Engineering</option>
-                <option value={"CSE"}>Computer Science Engineering</option>
-                <option value={"IT"}>Information Technology</option>
+                <option value={"BT"}>A</option>
+                <option value={"BI"}>B</option>
+                <option value={"CE"}>C</option>
+                <option value={"CSE"}>D</option>
+                <option value={"IT"}>E</option>
                 <option value={"ECE"}>
-                  Electronics Communication Engineering
+                  F
                 </option>
-                <option value={"ECM"}>Electronics Computer Engineering</option>
+                <option value={"ECM"}>G</option>
               </select>
               <label className="form-label-2">
                 <center>Choice 2</center>
@@ -967,15 +967,15 @@ function FormBody() {
                 <option selected disabled>
                   Select Choice
                 </option>
-                <option value={"BT"}>Bioinformatics</option>
-                <option value={"BI"}>Biotechnology</option>
-                <option value={"CE"}>Civil Engineering</option>
-                <option value={"CSE"}>Computer Science Engineering</option>
-                <option value={"IT"}>Information Technology</option>
+                <option value={"BT"}>A</option>
+                <option value={"BI"}>B</option>
+                <option value={"CE"}>C</option>
+                <option value={"CSE"}>D</option>
+                <option value={"IT"}>E</option>
                 <option value={"ECE"}>
-                  Electronics Communication Engineering
+                  F
                 </option>
-                <option value={"ECM"}>Electronics Computer Engineering</option>
+                <option value={"ECM"}>G</option>
               </select>
               <label className="form-label-3">
                 <center>Choice 3</center>
@@ -988,15 +988,15 @@ function FormBody() {
                 <option selected disabled>
                   Select Choice
                 </option>
-                <option value={"BT"}>Bioinformatics</option>
-                <option value={"BI"}>Biotechnology</option>
-                <option value={"CE"}>Civil Engineering</option>
-                <option value={"CSE"}>Computer Science Engineering</option>
-                <option value={"IT"}>Information Technology</option>
+                <option value={"BT"}>A</option>
+                <option value={"BI"}>B</option>
+                <option value={"CE"}>C</option>
+                <option value={"CSE"}>D</option>
+                <option value={"IT"}>E</option>
                 <option value={"ECE"}>
-                  Electronics Communication Engineering
+                  F
                 </option>
-                <option value={"ECM"}>Electronics Computer Engineering</option>
+                <option value={"ECM"}>G</option>
               </select>
               <label className="form-label-4">
                 <center>Choice 4</center>
@@ -1009,15 +1009,15 @@ function FormBody() {
                 <option selected disabled>
                   Select Choice
                 </option>
-                <option value={"BT"}>Bioinformatics</option>
-                <option value={"BI"}>Biotechnology</option>
-                <option value={"CE"}>Civil Engineering</option>
-                <option value={"CSE"}>Computer Science Engineering</option>
-                <option value={"IT"}>Information Technology</option>
+                <option value={"BT"}>A</option>
+                <option value={"BI"}>B</option>
+                <option value={"CE"}>C</option>
+                <option value={"CSE"}>D</option>
+                <option value={"IT"}>E</option>
                 <option value={"ECE"}>
-                  Electronics Communication Engineering
+                  F
                 </option>
-                <option value={"ECM"}>Electronics Computer Engineering</option>
+                <option value={"ECM"}>G</option>
               </select>
               <label className="form-label-5">
                 <center>Choice 5</center>
@@ -1030,15 +1030,15 @@ function FormBody() {
                 <option selected disabled>
                   Select Choice
                 </option>
-                <option value={"BT"}>Bioinformatics</option>
-                <option value={"BI"}>Biotechnology</option>
-                <option value={"CE"}>Civil Engineering</option>
-                <option value={"CSE"}>Computer Science Engineering</option>
-                <option value={"IT"}>Information Technology</option>
+                <option value={"BT"}>A</option>
+                <option value={"BI"}>B</option>
+                <option value={"CE"}>C</option>
+                <option value={"CSE"}>D</option>
+                <option value={"IT"}>E</option>
                 <option value={"ECE"}>
-                  Electronics Communication Engineering
+                  F
                 </option>
-                <option value={"ECM"}>Electronics Computer Engineering</option>
+                <option value={"ECM"}>G</option>
               </select>
               <label className="form-label-6">
                 <center>Choice 6</center>
@@ -1051,15 +1051,15 @@ function FormBody() {
                 <option selected disabled>
                   Select Choice
                 </option>
-                <option value={"BT"}>Bioinformatics</option>
-                <option value={"BI"}>Biotechnology</option>
-                <option value={"CE"}>Civil Engineering</option>
-                <option value={"CSE"}>Computer Science Engineering</option>
-                <option value={"IT"}>Information Technology</option>
+                <option value={"BT"}>A</option>
+                <option value={"BI"}>B</option>
+                <option value={"CE"}>C</option>
+                <option value={"CSE"}>D</option>
+                <option value={"IT"}>E</option>
                 <option value={"ECE"}>
-                  Electronics Communication Engineering
+                  F
                 </option>
-                <option value={"ECM"}>Electronics Computer Engineering</option>
+                <option value={"ECM"}>G</option>
               </select>
               <label className="form-label-7">
                 <center>Choice 7</center>
@@ -1072,15 +1072,15 @@ function FormBody() {
                 <option selected disabled>
                   Select Choice
                 </option>
-                <option value={"BT"}>Bioinformatics</option>
-                <option value={"BI"}>Biotechnology</option>
-                <option value={"CE"}>Civil Engineering</option>
-                <option value={"CSE"}>Computer Science Engineering</option>
-                <option value={"IT"}>Information Technology</option>
+                <option value={"BT"}>A</option>
+                <option value={"BI"}>B</option>
+                <option value={"CE"}>C</option>
+                <option value={"CSE"}>D</option>
+                <option value={"IT"}>E</option>
                 <option value={"ECE"}>
-                  Electronics Communication Engineering
+                  F
                 </option>
-                <option value={"ECM"}>Electronics Computer Engineering</option>
+                <option value={"ECM"}>G</option>
               </select>
             </div>
           </div>
